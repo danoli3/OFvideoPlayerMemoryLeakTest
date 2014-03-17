@@ -57,26 +57,25 @@
     [self.view addSubview:containerView];
 
     NSArray *buttonTitles;
-    buttonTitles = [NSArray arrayWithObjects: @"square", @"circle", @"triangle", @"image", nil];
+    buttonTitles = [NSArray arrayWithObjects: @"Load oF Cam", nil];
     
     NSInteger buttonY = 44;     // make room for navigation bar.
     NSInteger buttonGap = 2;
-    NSInteger buttonHeight = (screenRect.size.height - 44) / [buttonTitles count] - buttonGap * ([buttonTitles count] - 1);
+    NSInteger buttonHeight = (screenRect.size.height - 44) / 4 - buttonGap * (4 - 1);
     CGRect buttonRect = CGRectMake(0, 0, screenRect.size.width, buttonHeight);
     
-    for (int i = 0; i < [buttonTitles count]; i++) {
+   
         UIButton *button;
         button = [self makeButtonWithFrame:CGRectMake(0, buttonY, buttonRect.size.width, buttonRect.size.height)
-                                   andText:[buttonTitles objectAtIndex:i]];
+                                   andText:[buttonTitles objectAtIndex:0]];
         [containerView addSubview:button ];
-        
-        if (i== 0)
+	
             [button addTarget:self action:@selector(button1Pressed:) forControlEvents:UIControlEventTouchUpInside];
 	
          
         buttonY += buttonRect.size.height;
         buttonY += buttonGap;
-    }
+    
     
     containerView.contentSize = CGSizeMake(buttonRect.size.width, buttonRect.size.height * 3);
 }
